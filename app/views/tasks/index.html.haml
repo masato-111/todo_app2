@@ -1,9 +1,10 @@
 %h1 タスク一覧
 
-%ul
+=link_to 'タスク登録' , new_task_path, class: 'btn btn-primary'
+
+.list-group.mt-3
   - @tasks.each do |task|
-    %li
-    = link_to task.title, task_path(task)
+    = link_to task.title, task_path(task), class: 'list-group-item list-group-item-action'
   
 
-=link_to 'ホーム画面に戻る' , root_path
+
