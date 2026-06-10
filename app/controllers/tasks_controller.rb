@@ -17,9 +17,10 @@ class TasksController < ApplicationController
   def create
     @task = Task.new(title: params[:task][:title], description: params[:task][:description])
     if @task.save
-      redirect_to tasks_path
+      redirect_to tasks_path, notice: 'タスクを登録しました'
     else
-      render :new
+      flash.now[:alert] = 'タスクの登録に失敗しました'
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -30,16 +31,17 @@ class TasksController < ApplicationController
   def update
     
     if @task.update(title: params[:task][:title], description: params[:task][:description])
-      redirect_to task_path(@task)
+      redirect_to task_path(@task), notice: 'タスクを更新しました'
     else
-      render :edit
+      flash.now[:alert] = 'タスクの更新に失敗しました'
+      render :edit, status: :unprocessable_entity
     end
   end
 
   def destroy
    
     @task.destroy!
-    redirect_to tasks_path
+    redirect_to tasks_path, notice: 'タスクを削除しました'
   end
 
   private
