@@ -1,8 +1,5 @@
-=form_with  model: task do |f|
-  .mb-3
-    = f.label :title, class: 'form-label'
-    = f.text_field  :title, class: 'form-control'
-  .mb-3
-    = f.label :description, class: 'form-label'
-    = f.text_area  :description, class: 'form-control'
+= simple_form_for  task do |f|
+  = f.input :title
+  = f.input :description
+ 
   = f.button :submit, class: 'btn btn-primary'

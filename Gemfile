@@ -62,3 +62,6 @@ group :development do
 end
 
 gem "haml-rails", "~> 3.0"
+
+# Gemfile
+gem 'simple_form'
