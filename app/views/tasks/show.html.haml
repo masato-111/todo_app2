@@ -1,5 +1,10 @@
 %h1 タスク詳細
 
+.d-flex.gap-2
+  = link_to 'タスクを編集' , edit_task_path(@task), class: 'btn btn-primary'
+  = button_to 'タスクを削除' , task_path(@task), method: :delete, data: { turbo_confirm: '本当に削除してよろしいですか？' }, class:  'btn btn-danger'
+  = link_to 'タスク一覧', tasks_path, class: 'btn btn-outline-secondary'
+
 %table.table
   %tr 
     %th  タイトル
@@ -7,7 +12,12 @@
   %tr
     %th 説明
     %td=@task.description
-.d-flex.gap-2
-  = link_to 'タスクを編集' , edit_task_path(@task), class: 'btn btn-primary'
-  = button_to 'タスクを削除' , task_path(@task), method: :delete, data: { turbo_confirm: '本当に削除してよろしいですか？' }, class:  'btn btn-danger'
-  = link_to 'タスク一覧', tasks_path, class: 'btn btn-outline-secondary'
+
+
+%h2 サブタスク一覧
+
+= link_to 'サブタスク登録', new_task_sub_task_path(@task), class: 'btn btn-primary mb-3'
+
+.list-group  
+  - @task.sub_tasks.each do |sub_task|
+    = link_to sub_task.title, task_sub_task_path(@task, sub_task), class: 'list-group-item list-group-item-action'

@@ -1,0 +1,16 @@
+%h1 サブタスク詳細
+
+.d-flex.gap-2  
+  = link_to 'サブタスク編集', edit_task_sub_task_path(@task, @sub_task), class: 'btn btn-primary'
+  = button_to 'サブタスクを削除', task_sub_task_path(@task, @sub_task), method: :delete, data: { turbo_confirm: '本当に削除してよろしいですか？' }, class: 'btn btn-danger'
+
+%table.table 
+  %tr
+    %th タスク
+    %td= link_to @task.title, task_sub_task_path(@task, @sub_task)
+  %tr
+    %th タイトル
+    %td= @sub_task.title
+  %tr
+    %th 説明
+    %td= @sub_task.description

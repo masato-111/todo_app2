@@ -13,6 +13,9 @@ ja:
       task:
         title: タイトル
         description: 説明
+      sub_task:
+        title: タイトル
+        description: 説明
   date:
     abbr_day_names:
     - 日
