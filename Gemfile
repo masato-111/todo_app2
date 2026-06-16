@@ -59,9 +59,17 @@ end
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
+  gem "letter_opener_web"
 end
 
 gem "haml-rails", "~> 3.0"
 
 # Gemfile
 gem 'simple_form'
+
+gem 'devise'
+
+# Gemfile
+group :development do
+  gem 'html2haml'
+end

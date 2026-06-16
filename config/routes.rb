@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   get "sub_tasks/new"
   # タスクのCRUD機能（一覧、詳細、新規登録、編集、削除）を一括有効化
   resources :tasks do

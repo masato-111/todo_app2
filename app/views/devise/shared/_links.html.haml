@@ -1,0 +1,6 @@
+- if controller_name != 'sessions'
+  %p= link_to "ログイン", new_session_path(resource_name)
+- if devise_mapping.registerable? && controller_name != 'registrations'
+  %p= link_to "新規登録", new_registration_path(resource_name)
+- if devise_mapping.confirmable? && controller_name != 'confirmations'
+  %p= link_to "アカウント有効化メールの再送", new_confirmation_path(resource_name)
