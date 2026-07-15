@@ -62,7 +62,7 @@ group :development do
   gem "letter_opener_web"
 end
 
-gem "haml-rails", "~> 3.0"
+gem "haml-rails", "~> 3.1"
 
 # Gemfile
 gem 'simple_form'
